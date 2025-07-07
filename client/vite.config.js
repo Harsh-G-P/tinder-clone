@@ -5,21 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react')) {
-              return 'vendor_react'
-            }
-            if (id.includes('some-big-lib')) {
-              return 'vendor_biglib'
-            }
-            return 'vendor'
-          }
-        }
-      }
-    }
+    chunkSizeWarningLimit: 1000, // increase from 500kB to 1000kB
   },
   plugins: [
     react(),
