@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { useMatchStore } from "../store/useMatchStore";
 import { Link, useParams } from "react-router-dom";
 import { Loader, UserX } from "lucide-react";
 import { useAuthStore } from "../Store/useAuthStore";
 import MessageInput from "../Components/MessageInput";
 import { useMessageStore } from "../Store/useMessageStore";
 import Header from "../Components/Header";
+import { useMatchStore } from "../Store/useMatchStore";
 
 const ChatPage = () => {
 	const { getMyMatches, matches, isLoadingMyMatches } = useMatchStore();
