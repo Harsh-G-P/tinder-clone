@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 
-const SOCKET_URL = import.meta.env.MODE === "development" ? "https://tinder-clone-backend-six.vercel.app" : "/";
+const SOCKET_URL = import.meta.env.MODE === "development" ? "https://tinder-clone-backend-six.vercel.app" : "https://tinder-clone-backend-six.vercel.app";
 
 let socket = null;
 
