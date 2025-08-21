@@ -2,6 +2,8 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
+import path from 'path'
+import {createServer} from 'http'
 
 //routes
 import authRoute from './routes/authRoute.js'
@@ -18,9 +20,11 @@ dotenv.config()
 
 const app= express()
 
+const httpServer = createServer(app)
 
 const port = process.env.PORT || 3001
 
+const __dirname = path.resolve()
 
 initializeSocket(httpServer)
 
@@ -38,7 +42,7 @@ app.use('/api/matches',matchRoute)
 app.use('/api/messages',messageRoute)
 
 
-app.listen(port,()=>{
+httpServer.listen(port,()=>{
     console.log('Server Started at this port 😸:' + ' ' + port)
     connectDB()
 })
